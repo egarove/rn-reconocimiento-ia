@@ -1,12 +1,13 @@
 {
   "expo": {
-    "plugins" : [
+    "plugins": [
       [
         "expo-camera",
         {
           "cameraPermission": "Permite $(PRODUCT_NAME) el acceso a la camara"
         }
-      ]
+      ],
+      "react-native-vision-camera"
     ],
     "name": "reconocimiento_ia",
     "slug": "reconocimiento_ia",
@@ -21,7 +22,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -29,7 +33,14 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.reconocimiento_ia"
     },
     "web": {
       "favicon": "./assets/favicon.png"
