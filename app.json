@@ -1,5 +1,13 @@
 {
   "expo": {
+    "plugins" : [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ]
+    ],
     "name": "reconocimiento_ia",
     "slug": "reconocimiento_ia",
     "version": "1.0.0",
