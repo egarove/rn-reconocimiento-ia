@@ -5,12 +5,37 @@ import { useState } from 'react';
 
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+  const [facing, setFacing] = useState<CameraType>('back');
+  const [permission, setPermission] = useCameraPermissions();
+
+  if (!permission) {
+    return( 
+    <View>
+      //Los permisos se estan procesando
     </View>
-  );
+    );
+  }
+
+  if (!permission.granted) {
+    return(
+    <View>
+      <Text>Necesitamos acceso a la camara para poder comprobar su mano.</Text>
+    </View>
+    );
+  }
+
+  function toggleCameraFacing() {
+    setFacing (current => (current == 'back' ? 'front' : 'back'));
+  }
+
+  return(
+    <View>
+      <TouchableOpacity onPress={toggleCameraFacing}>
+        <Text>Invertir Camara</Text>
+      </TouchableOpacity>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({

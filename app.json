@@ -4,7 +4,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+          "cameraPermission": "Permite $(PRODUCT_NAME) el acceso a la camara"
         }
       ]
     ],
