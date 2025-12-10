@@ -33,10 +33,7 @@ export default function App() {
 
   return(
     <View>
-      <Camera>
-        device={device}
-        isActive={true}
-      </Camera>
+      <CameraView facing={facing}></CameraView>
       <TouchableOpacity onPress={toggleCameraFacing}>
         <Text>Invertir Camara</Text>
       </TouchableOpacity>
