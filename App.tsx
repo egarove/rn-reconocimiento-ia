@@ -9,7 +9,6 @@ export default function App() {
 
   const [facing, setFacing] = useState<CameraType>('back');
   const [permission, setPermission] = useCameraPermissions();
-  const device = useCameraDevice ('back')
 
   if (!permission) {
     return( 
@@ -23,6 +22,7 @@ export default function App() {
     return(
     <View>
       <Text>Necesitamos acceso a la camara para poder comprobar su mano.</Text>
+      <Button title='Permisos' onPress={setPermission}></Button>
     </View>
     );
   }
@@ -33,10 +33,11 @@ export default function App() {
 
   return(
     <View>
-      <CameraView facing={facing}></CameraView>
-      <TouchableOpacity onPress={toggleCameraFacing}>
-        <Text>Invertir Camara</Text>
-      </TouchableOpacity>
+      <CameraView facing={facing} style={styles.camera}>
+        <TouchableOpacity onPress={toggleCameraFacing}>
+          <Text>Invertir Camara</Text>
+        </TouchableOpacity>
+      </CameraView>
     </View>
   )
 }
@@ -48,4 +49,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  camera: {
+    flex: 1
+  }
 });
