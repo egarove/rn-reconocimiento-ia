@@ -32,25 +32,12 @@ export default function App() {
   }
 
   return(
-    <View>
-      <CameraView facing={facing} style={styles.camera}>
-        <TouchableOpacity onPress={toggleCameraFacing}>
-          <Text>Invertir Camara</Text>
+    <View style= {{flex: 1}}>
+      <CameraView facing={facing} style={{flex: 1}}>
+        <TouchableOpacity onPress={toggleCameraFacing} style={{backgroundColor: 'white',  height: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{justifyContent: 'center', alignItems: 'center'}}>Invertir Camara</Text>
         </TouchableOpacity>
       </CameraView>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  camera: {
-    flex: 1
-  }
-});
